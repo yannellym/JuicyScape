@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Container = styled.div`
     position: absolute;
-    top: 1rem;
+    top: -1rem;
     left: 1rem;
     width: 100%;
     color: ${props => props.theme.text};
@@ -59,7 +59,7 @@ const Logo = () => {
         <Container>
             <Link to="/">
             <svg version="1.0" xmlns="http://www.w3.org/5000/svg"
-                width="150" height="120" viewBox="0 0 500.000000 500.000000"
+                width="150" height="150" viewBox="0 0 500.000000 500.000000"
                 preserveAspectRatio="xMidYMid meet">
 
                 <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"

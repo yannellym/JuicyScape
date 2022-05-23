@@ -11,6 +11,10 @@ const VideoContainer = styled.section`
         height: 100%;
         object-fit: cover;
     }
+    span{
+        color: rgba(209, 200, 55);
+        text-shadow: 1px 1px 1px green;
+    }
 `
 const container = {
     hidden: {
@@ -55,7 +59,7 @@ const CoverVideo = () => {
         <VideoContainer>
             <Title variants={container} initial="hidden" animate="show">
                 <div>
-                    <h1 data-scroll data-scroll-speed="4">Juicy Scape</h1> 
+                    <h1 data-scroll data-scroll-speed="4">Juicy Sc<span>a</span>pe</h1> 
                     {/* slows down the scroll speed */}
                 </div>
                 <h2 data-scroll  data-scroll-delay="0.015" data-scroll-speed="4"> Natural. Refreshing. Unique </h2>
