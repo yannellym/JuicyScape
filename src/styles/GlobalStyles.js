@@ -4,7 +4,7 @@ import "@fontsource/cuprum";
 
 const GlobalStyles = createGlobalStyle`
    
-    *, *::beforeAll, *::after{
+    *{
         margin: 0;
         padding: 0;
     }

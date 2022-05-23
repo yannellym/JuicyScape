@@ -48,10 +48,10 @@ const CoverVideo = () => {
         <VideoContainer>
             <Title>
                 <div>
-                    <h1 data-scroll data-scroll-speed="4">Juicy Scape</h1>  
+                    <h1 data-scroll data-scroll-speed="4">Juicy Scape</h1> 
                     {/* slows down the scroll speed */}
                 </div>
-                <h2> Natural. Refreshing. Unique </h2>
+                <h2 data-scroll  data-scroll-delay="0.015" data-scroll-speed="4"> Natural. Refreshing. Unique </h2>
             </Title>
            <video src={Video6} type="video/mp4" autoPlay muted loop />
         </VideoContainer>
