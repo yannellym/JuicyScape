@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
     position: absolute;
@@ -10,7 +11,48 @@ const Container = styled.div`
     color: ${props => props.theme.text};
     z-index: 5;
     color: black;
+
+    svg{
+        width: 10rem;
+        height: auto;
+        overflow: visible;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+
+        g{
+            path{
+                stroke: ${props => props.theme.fontlg};
+                color: ${props => props.theme.next};
+                padding-bottom: 0.5rem;
+            }
+        }
+
+    }
 `
+
+// const Text = styled.span`
+//     font-size: ${props => props.theme.font}
+
+// `
+
+
+const pathVariants = {
+    hidden: {
+        opacity: 0,
+        pathLength: 0,
+    },
+    visible: {
+        opacity: 1,
+        pathLength: 1,
+
+        transition: {
+            duration: 6,
+            ease: 'easeInOut'
+        }
+    }
+}
+
+
 
 const Logo = () => {
     return (
@@ -22,7 +64,8 @@ const Logo = () => {
 
                 <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
                 fill="#000000" stroke="none">
-                <path d="M2001 3691 c-36 -23 20 -162 93 -229 41 -38 51 -42 96 -42 54 0 68
+                <motion.path variants={pathVariants} initial="hidden" animate="visible"
+                d="M2001 3691 c-36 -23 20 -162 93 -229 41 -38 51 -42 96 -42 54 0 68
                 14 23 23 -69 14 -157 112 -165 182 -3 29 -1 30 32 27 19 -1 51 -9 71 -18 34
                 -15 46 -30 101 -124 l20 -35 21 44 c25 53 81 92 142 99 54 6 55 0 21 -74 -38
                 -81 -108 -131 -208 -148 -36 -7 -78 -44 -78 -71 0 -16 -36 -46 -91 -78 -97
@@ -77,6 +120,9 @@ const Logo = () => {
                 -38 -25z m63 -22 c2 -8 -6 -13 -22 -13 -25 0 -33 10 -19 24 10 10 36 3 41 -11z"/>
                 </g>
                 </svg>
+                {/* <Text>
+                    Juice Scape
+                </Text> */}
             </Link>
         </Container>
     );

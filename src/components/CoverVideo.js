@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Video6 from "../assets/Videos/Video6.mp4";
+import { motion } from "framer-motion";
 
 const VideoContainer = styled.section`
     width: 100%;
@@ -11,15 +12,21 @@ const VideoContainer = styled.section`
         object-fit: cover;
     }
 `
-// const DarkOverlay = styled.div`
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     z-index: 1;
-// `
-const Title = styled.div`
+const container = {
+    hidden: {
+        opacity: 0
+    },
+    show: {
+        opacity: 1,
+
+        transition: {
+            duration: 2,
+            ease: 'easeInOut'
+        }
+    }
+}
+
+const Title = styled(motion.div)`
     position: absolute;
     top: 0;
     bottom: 0;
@@ -46,7 +53,7 @@ const Title = styled.div`
 const CoverVideo = () => {
     return ( 
         <VideoContainer>
-            <Title>
+            <Title variants={container} initial="hidden" animate="show">
                 <div>
                     <h1 data-scroll data-scroll-speed="4">Juicy Scape</h1> 
                     {/* slows down the scroll speed */}
