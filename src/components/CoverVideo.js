@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Video6 from "../assets/Videos/Video6.mp4";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const VideoContainer = styled.section`
     width: 100%;
@@ -12,8 +13,8 @@ const VideoContainer = styled.section`
         object-fit: cover;
     }
     span{
-        color: rgba(209, 200, 55);
-        text-shadow: 1px 1px 1px green;
+        color: ${props => props.click?  "red" : "orange" };
+        text-shadow: 1px 1px 1px red;   
     }
 `
 const container = {
@@ -42,6 +43,7 @@ const Title = styled(motion.div)`
     align-items: center;
     flex-direction: column;
     color: ${props => props.theme.text};
+    cursor:  crosshair;
 
     h1{
         font-size: ${props => props.theme.fontBig};
@@ -55,11 +57,12 @@ const Title = styled(motion.div)`
 `
 
 const CoverVideo = () => {
+    const [click, setClick] = useState(false);
     return ( 
-        <VideoContainer>
+        <VideoContainer click={click}>
             <Title variants={container} initial="hidden" animate="show">
                 <div>
-                    <h1 data-scroll data-scroll-speed="4">Juicy Sc<span>a</span>pe</h1> 
+                    <h1 data-scroll data-scroll-speed="4">Juicy Sc<span onMouseOver={() => setClick(!click)}>a</span>pe</h1> 
                     {/* slows down the scroll speed */}
                 </div>
                 <h2 data-scroll  data-scroll-delay="0.015" data-scroll-speed="4"> Natural. Refreshing. Unique </h2>
