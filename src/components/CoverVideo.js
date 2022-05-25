@@ -13,8 +13,8 @@ const VideoContainer = styled.section`
         object-fit: cover;
     }
     span{
-        color: ${props => props.click?  "orange" : "green" };
-        text-shadow: 1px 1px 1px black;   
+        color: ${props => props.click?  "rgb(242, 146, 29)" : "green" };
+        text-shadow: 1px 1px 1px white;   
     }
 `
 const container = {

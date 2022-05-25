@@ -23,7 +23,7 @@ const MenuBar = styled.li`
     font-size: ${props => props.theme.fontlg};
     
     li:hover{
-        color: orange;
+        color: rgb(242, 146, 29);
     }
 `
 
