@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Video6 from "../assets/Videos/Video6.mp4";
+import Video1 from "../assets/Videos/Video1.mp4";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -13,8 +13,8 @@ const VideoContainer = styled.section`
         object-fit: cover;
     }
     span{
-        color: ${props => props.click?  "red" : "orange" };
-        text-shadow: 1px 1px 1px red;   
+        color: ${props => props.click?  "orange" : "green" };
+        text-shadow: 1px 1px 1px orange;   
     }
 `
 const container = {
@@ -62,12 +62,12 @@ const CoverVideo = () => {
         <VideoContainer click={click}>
             <Title variants={container} initial="hidden" animate="show">
                 <div>
-                    <h1 data-scroll data-scroll-speed="4">Juicy Sc<span onMouseOver={() => setClick(!click)}>a</span>pe</h1> 
+                    <h1 data-scroll data-scroll-speed="4">To<span onMouseOver={() => setClick(!click)}>p</span>e</h1> 
                     {/* slows down the scroll speed */}
                 </div>
-                <h2 data-scroll  data-scroll-delay="0.015" data-scroll-speed="4"> Natural. Refreshing. Unique </h2>
+                <h2 data-scroll  data-scroll-delay="0.015" data-scroll-speed="4"> Classic. Unique. Dope </h2>
             </Title>
-           <video src={Video6} type="video/mp4" autoPlay muted loop />
+           <video src={Video1} type="video/mp4" autoPlay muted loop />
         </VideoContainer>
     );
 }
