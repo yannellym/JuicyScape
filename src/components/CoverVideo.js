@@ -14,7 +14,7 @@ const VideoContainer = styled.section`
     }
     span{
         color: ${props => props.click?  "orange" : "green" };
-        text-shadow: 1px 1px 1px orange;   
+        text-shadow: 1px 1px 1px black;   
     }
 `
 const container = {

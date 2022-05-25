@@ -16,11 +16,11 @@ const Title = styled.h1`
     z-index: 5;
 `
 const Left = styled.section`
-    font-size: ${props => props.theme.fontBig};
+    font-size: ${props => props.theme.fontlg};
    
 `
 const Right = styled.section`
-    font-size: ${props => props.theme.fontBig};
+    font-size: ${props => props.theme.fontlg};
     
 `
 
