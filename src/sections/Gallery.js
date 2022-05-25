@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
 
 const Section = styled.section`
     min-height: 100vh;
@@ -49,7 +52,7 @@ const Right = styled.div`
     padding-left: 30%;
     min-height: 100vh;
     position: fixed;
-    width: 65%;
+    // width: 65%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -61,7 +64,40 @@ const Right = styled.div`
 `
 
 
-const Shop = () => {
+const Gallery = () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ref = useRef(null);
+    const horizontalRef = useRef(null);
+    
+    useLayoutEffect(() => {
+        let element = ref.current;
+        let scrollingElement = horizontalRef.current;
+        let pinWrapWidth = scrollingElement.offsetWidth;
+        let t1 = gsap.timeline();
+
+        setTimeout(() => {
+            t1.to(element, {
+                scrollTrigger: {
+                    trigger : element,
+                    start : "top top",
+                    end : pinWrapWidth,
+                    scroller: "app", //locomotive
+                    scrub: true,
+                    pin: true,
+                    markers: true,
+                },
+                //increase scrolling height
+                height: `${scrollingElement.scrollWidth}px`,
+                ease: "none",
+        })
+        ScrollTrigger.refresh();
+    }, 1000);
+
+    return () => {
+    };
+    }, [])
+
     return ( 
         <Section>
             <Title data-scroll data-scroll-speed="-1">Latest Trends</Title>
@@ -76,7 +112,7 @@ const Shop = () => {
                     <br />
                 </p>
             </Left>
-            <Right>
+            <Right ref={horizontalRef}>
                 <h1>img</h1>
                 <h1>img</h1>
                 <h1>img</h1>
@@ -85,4 +121,4 @@ const Shop = () => {
      );
 }
  
-export default Shop;
+export default Gallery;

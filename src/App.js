@@ -8,6 +8,7 @@ import Home from "./sections/Home"
 import { AnimatePresence } from "framer-motion";
 import About from "./sections/About";
 import Gallery from "./sections/Gallery";
+import ScrollTriggerProxy from "./components/ScrollTrigger";
 
 function App() {
   const containerRef = useRef(null);
@@ -32,15 +33,16 @@ function App() {
       }
       containerRef={containerRef}
     >
-      <AnimatePresence>
-        <main data-scroll-container ref={containerRef}>
-          <Home />
-          <About />
-          <Gallery />
-        </main>
-      </AnimatePresence>
-    </LocomotiveScrollProvider>
-    </ThemeProvider>
+    <ScrollTriggerProxy />
+          <AnimatePresence>
+            <main className="app" data-scroll-container ref={containerRef}>
+              <Home />
+              <About />
+              <Gallery />
+            </main>
+          </AnimatePresence>
+        </LocomotiveScrollProvider>
+      </ThemeProvider>
     </>
   );
 }
