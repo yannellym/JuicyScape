@@ -1,12 +1,13 @@
 import { useLocomotiveScroll } from "react-locomotive-scroll";
-import ScrollTrigger from "gsap/ScrollTrigger"
-import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { gsap } from 'gsap';
 import { useEffect } from "react";
+
 
 const ScrollTriggerProxy = () => {
     const { scroll } = useLocomotiveScroll();  //instance of locomotive scrolll
 
-    gsap.registerPlugin(ScrollTrigger) //register this
+    gsap.registerPlugin(ScrollTrigger); //register this
 
     useEffect(() => {
         if(scroll){
@@ -23,7 +24,7 @@ const ScrollTriggerProxy = () => {
                         top: 0, 
                         left: 0, 
                         width: window.innerWidth,
-                        height: window.innerHeight
+                        height: window.innerHeight,
                     };
                 },
                 // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).

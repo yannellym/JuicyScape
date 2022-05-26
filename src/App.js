@@ -8,7 +8,7 @@ import Home from "./sections/Home"
 import { AnimatePresence } from "framer-motion";
 import About from "./sections/About";
 import Gallery from "./sections/Gallery";
-import ScrollTriggerProxy from "./components/ScrollTrigger";
+import ScrollTriggerProxy from "./components/ScrollTriggerProxy";
 
 function App() {
   const containerRef = useRef(null);

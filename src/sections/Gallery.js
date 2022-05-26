@@ -3,6 +3,11 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 
+import man1 from "../assets/images/man1.jpg";
+import man2 from "../assets/images/man2.jpg";
+import man3 from "../assets/images/man3.jpg";
+import man4 from "../assets/images/man4.jpg";
+
 const Section = styled.section`
     min-height: 100vh;
     height: auto;
@@ -47,12 +52,11 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
+    position: absolute;
     left: 35%;
-    color: ${props => props.theme.grey};
+    background-color: ${props => props.theme.grey};
     padding-left: 30%;
     min-height: 100vh;
-    position: fixed;
-    // width: 65%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -62,7 +66,32 @@ const Right = styled.div`
         margin: 0 2rem;
     }
 `
+const Item = styled.div`
+    display: inline-block;
+    width: 20rem;
+    margin-right: 6rem;
+    img{
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+    h1{
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+    }
+`
 
+
+
+const Product = ({img, title = ""}) => {
+    return(
+        <Item>
+            <img src={img} alt="" srcSet="" />
+            <h1>{title}</h1>
+        </Item>
+    )
+};
 
 const Gallery = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -91,11 +120,24 @@ const Gallery = () => {
                 height: `${scrollingElement.scrollWidth}px`,
                 ease: "none",
         })
+        t1.to(scrollingElement, { //to scroll horizontally
+            scrollTrigger: {
+                trigger : scrollingElement,
+                start : "top top",
+                end : pinWrapWidth,
+                scroller: "app", //locomotive
+                scrub: true,
+                markers: true,
+            },
+            //increase scrolling height of this and be the same as the scrolling element width
+            x: -pinWrapWidth,
+            ease: "none",
+    })
         ScrollTrigger.refresh();
     }, 1000);
 
     return () => {
-    };
+        };
     }, [])
 
     return ( 
@@ -113,9 +155,18 @@ const Gallery = () => {
                 </p>
             </Left>
             <Right ref={horizontalRef}>
-                <h1>img</h1>
-                <h1>img</h1>
-                <h1>img</h1>
+                <Product img={man1} title="aaa" />
+                <Product img={man2} title="aaa" />
+                <Product img={man3} title="aaa" />
+                <Product img={man4} title="aaa" />
+                <Product img={man1} title="aaa" />
+                <Product img={man2} title="aaa" />
+                <Product img={man3} title="aaa" />
+                <Product img={man4} title="aaa" />
+                <Product img={man1} title="aaa" />
+                <Product img={man2} title="aaa" />
+                <Product img={man3} title="aaa" />
+                <Product img={man4} title="aaa" />
             </Right>
         </Section>
      );
